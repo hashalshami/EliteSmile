@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS Users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT 'Doctor'
+);
+
+CREATE TABLE IF NOT EXISTS Patients (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    phone TEXT,
+    fileNo TEXT,
+    date TEXT,
+    plan TEXT,
+    DoctorId INTEGER,
+    FOREIGN KEY (DoctorId) REFERENCES Users(id) ON DELETE SET NULL
+);
+
+
+INSERT OR IGNORE INTO Users (name, username, password, role)
+VALUES ('د. هند امين', 'hend', '0000', 'Admin');
+
+INSERT OR IGNORE INTO Users (name, username, password, role)
+VALUES ('م. هاشم امين', 'hash', '0000', 'Admin');
