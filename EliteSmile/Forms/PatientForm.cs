@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
-using EliteSmile.Data;
 using EliteSmile.Models;
 using EliteSmile.Classes;
 
@@ -18,11 +17,10 @@ namespace EliteSmile.Forms
     public partial class PatientForm : Form
     {
         private string connectionString = DatabaseInitializer.connectionString;
-        static int PatientId =0;
 
         private void ClearFields()
         {
-            PatientId = 0;
+            txtID.Text = "";
             txtDoctorName.Text = Session.Name;
             dateTimePicker1.Value = DateTime.Now;
             txtName.Text = "";
@@ -182,11 +180,13 @@ namespace EliteSmile.Forms
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            if (PatientId == 0)
+            if (string.IsNullOrWhiteSpace(txtID.Text))
             {
-                MessageBox.Show("الرجاء تحديد مريض للتعديل.");
+                MessageBox.Show("الرجاء تحديد مريض للتعديل.", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            int patient_id = Convert.ToInt32(txtID.Text);
 
             try
             {
@@ -200,7 +200,7 @@ namespace EliteSmile.Forms
 
                     using (var cmd = new SQLiteCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", Convert.ToInt32(PatientId));
+                        cmd.Parameters.AddWithValue("@id", Convert.ToInt32(patient_id));
                         cmd.Parameters.AddWithValue("@name", txtName.Text);
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
                         cmd.Parameters.AddWithValue("@fileNo", txtFileNo.Text);
@@ -224,11 +224,13 @@ namespace EliteSmile.Forms
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (PatientId ==0)
+            if (string.IsNullOrWhiteSpace(txtID.Text))
             {
-                MessageBox.Show("الرجاء تحديد مريض للحذف.");
+                MessageBox.Show("الرجاء تحديد مريض للحذف.", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            int patient_id = Convert.ToInt32(txtID.Text);
 
             if (MessageBox.Show("هل أنت متأكد من حذف هذا المريض؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
@@ -243,7 +245,7 @@ namespace EliteSmile.Forms
 
                     using (var cmd = new SQLiteCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", PatientId);
+                        cmd.Parameters.AddWithValue("@id", patient_id);
                         cmd.ExecuteNonQuery();
                     }
                     LoadData();
@@ -263,11 +265,11 @@ namespace EliteSmile.Forms
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                PatientId = row.Cells["colID"].Value != null ? Convert.ToInt32(row.Cells["colID"].Value) : 0;
+                txtID.Text = row.Cells["colID"].Value != null ? row.Cells["colID"].Value.ToString() : "";
                 txtName.Text = row.Cells["colName"].Value != null ? row.Cells["colName"].Value.ToString() : "";
                 txtPhone.Text = row.Cells["colPhone"].Value != null ? row.Cells["colPhone"].Value.ToString() : "";
                 txtFileNo.Text = row.Cells["colFileNo"].Value != null ? row.Cells["colFileNo"].Value.ToString() : "";
-                //txtDate.Text = row.Cells["date"].Value.ToString();
+                //dateTimePicker1.Value = row.Cells["date"].Value.ToString();
                 txtPlan.Text = row.Cells["colPlan"].Value != null ? row.Cells["colPlan"].Value.ToString() : "";
             }
         }
@@ -325,6 +327,7 @@ namespace EliteSmile.Forms
             }
             catch (Exception ex)
             {
+                MessageBox.Show("خطأ أثناء البحث: " + ex.Message);
                 return;
             }
         }
@@ -395,6 +398,16 @@ namespace EliteSmile.Forms
             //    txtPlan.Focus();
 
             //}
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("يرجى تحديد المريض لطباعة الخطة !", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int patient_id = Convert.ToInt32(txtID.Text);
         }
     }
 }

@@ -12,3 +12,16 @@ C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.pdb
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.PatientForm.resources
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.ProfileForm.resources
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.csprojResolveAssemblyReference.cache
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\bin\Debug\EliteSmile.exe.config
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.exe
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.pdb
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\bin\Debug\EliteSmile.exe
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\bin\Debug\EliteSmile.pdb
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\bin\Debug\System.Data.SQLite.dll
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Form1.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Forms.PatientForm.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Forms.ProfileForm.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Login.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.MainForm.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Properties.Resources.resources
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.csproj.GenerateResource.Cache

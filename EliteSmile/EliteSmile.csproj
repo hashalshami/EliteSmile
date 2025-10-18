@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Classes\MasterClass.cs" />
     <Compile Include="DatabaseInitializer.cs" />
-    <Compile Include="Data\PatientRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
