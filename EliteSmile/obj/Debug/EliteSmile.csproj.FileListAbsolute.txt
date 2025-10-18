@@ -11,3 +11,4 @@ C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.exe
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.pdb
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.PatientForm.resources
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.ProfileForm.resources
+C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.csprojResolveAssemblyReference.cache

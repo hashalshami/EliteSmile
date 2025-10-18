@@ -17,7 +17,6 @@ namespace EliteSmile.Forms
 {
     public partial class PatientForm : Form
     {
-        private PatientRepository repo = new PatientRepository();
         private string connectionString = DatabaseInitializer.connectionString;
         static int PatientId =0;
 
@@ -164,7 +163,7 @@ namespace EliteSmile.Forms
                         cmd.Parameters.AddWithValue("@name", txtName.Text);
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
                         cmd.Parameters.AddWithValue("@fileNo", txtFileNo.Text);
-                        cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value);
                         cmd.Parameters.AddWithValue("@plan", txtPlan.Text);
                         cmd.Parameters.AddWithValue("@DoctorId", Session.ID);
 
@@ -205,7 +204,7 @@ namespace EliteSmile.Forms
                         cmd.Parameters.AddWithValue("@name", txtName.Text);
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
                         cmd.Parameters.AddWithValue("@fileNo", txtFileNo.Text);
-                        cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value);
                         cmd.Parameters.AddWithValue("@plan", txtPlan.Text);
 
                         cmd.ExecuteNonQuery();
