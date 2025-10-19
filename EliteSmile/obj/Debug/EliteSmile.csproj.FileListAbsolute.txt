@@ -25,3 +25,4 @@ C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Login.resources
 C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.MainForm.resources
 C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Properties.Resources.resources
 C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.csproj.GenerateResource.Cache
+C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Forms.PatientReportForm.resources

@@ -106,14 +106,7 @@ namespace EliteSmile.Forms
 
                         dataGridView1.DataSource = dt;
 
-                        // اختياري: إعادة تسمية الأعمدة
-                        //dataGridView1.Columns["Id"].HeaderText = "رقم";
-                        //dataGridView1.Columns["Name"].HeaderText = "الاسم";
-                        //dataGridView1.Columns["Phone"].HeaderText = "الهاتف";
-                        //dataGridView1.Columns["FileNo"].HeaderText = "رقم الملف";
-                        //dataGridView1.Columns["Date"].HeaderText = "التاريخ";
-                        //dataGridView1.Columns["TreatmentPlan"].HeaderText = "الخطة العلاجية";
-                        //dataGridView1.Columns["DoctorName"].HeaderText = "الطبيب";
+                        
                     }
                 }
             }
@@ -408,6 +401,9 @@ namespace EliteSmile.Forms
                 return;
             }
             int patient_id = Convert.ToInt32(txtID.Text);
+            PatientReportForm report = new PatientReportForm(patient_id);
+            report.Show();
+            //report.ShowDialog();
         }
     }
 }
