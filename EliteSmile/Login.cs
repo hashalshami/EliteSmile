@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using EliteSmile.Models;
+using EliteSmile.Forms;
 
 namespace EliteSmile
 {
@@ -111,6 +112,12 @@ namespace EliteSmile
                 // تشغيل حدث نقر على الزر
                 btnLogin.PerformClick();
             }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            Signup sign = new Signup();
+            sign.Show();
         }
     }
 }

@@ -38,5 +38,32 @@ namespace EliteSmile
                 }
             }
         }
+
+        private static void AddColumnIfNotExists(SQLiteConnection conn, string table, string column, string type)
+        {
+            string check = "PRAGMA table_info("+table+");";
+            using (var cmd = new SQLiteCommand(check, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                bool exists = false;
+                while (reader.Read())
+                {
+                    if (reader["name"].ToString().Equals(column, StringComparison.OrdinalIgnoreCase))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    string alter = "ALTER TABLE " + table + " ADD COLUMN " + column + type+ ";";
+                    using (var alterCmd = new SQLiteCommand(alter, conn))
+                    {
+                        alterCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
     }
 }

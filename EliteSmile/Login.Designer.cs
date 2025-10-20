@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblUser = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPass = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.addBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -48,7 +51,7 @@
             this.txtUsername.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtUsername.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.txtUsername.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtUsername.Location = new System.Drawing.Point(82, 16);
+            this.txtUsername.Location = new System.Drawing.Point(126, 21);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsername.MaximumSize = new System.Drawing.Size(400, 27);
             this.txtUsername.MinimumSize = new System.Drawing.Size(100, 21);
@@ -58,31 +61,20 @@
             this.txtUsername.TabIndex = 20;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
-            // lblUser
-            // 
-            this.lblUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblUser.Location = new System.Drawing.Point(365, 16);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Padding = new System.Windows.Forms.Padding(4);
-            this.lblUser.Size = new System.Drawing.Size(83, 25);
-            this.lblUser.TabIndex = 19;
-            this.lblUser.Text = "اسم المستخدم";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.addBtn);
             this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("PT Bold Broken", 11F);
             this.groupBox1.Location = new System.Drawing.Point(20, 20);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(514, 265);
+            this.groupBox1.Size = new System.Drawing.Size(574, 304);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تسجيل الدخول";
@@ -91,11 +83,11 @@
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(170, 160);
+            this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.btnLogin.Location = new System.Drawing.Point(174, 169);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(160, 37);
+            this.btnLogin.Size = new System.Drawing.Size(220, 51);
             this.btnLogin.TabIndex = 26;
             this.btnLogin.Text = "دخول";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -103,12 +95,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.txtPassword);
-            this.groupBox3.Controls.Add(this.lblPass);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(30, 89);
+            this.groupBox3.Location = new System.Drawing.Point(30, 103);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(454, 56);
+            this.groupBox3.Size = new System.Drawing.Size(514, 56);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
@@ -118,7 +111,7 @@
             this.txtPassword.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtPassword.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPassword.Location = new System.Drawing.Point(82, 16);
+            this.txtPassword.Location = new System.Drawing.Point(126, 20);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.MaximumSize = new System.Drawing.Size(400, 27);
             this.txtPassword.MinimumSize = new System.Drawing.Size(100, 21);
@@ -128,36 +121,104 @@
             this.txtPassword.TabIndex = 22;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
-            // lblPass
-            // 
-            this.lblPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPass.AutoSize = true;
-            this.lblPass.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblPass.Location = new System.Drawing.Point(365, 16);
-            this.lblPass.Name = "lblPass";
-            this.lblPass.Padding = new System.Windows.Forms.Padding(4);
-            this.lblPass.Size = new System.Drawing.Size(74, 25);
-            this.lblPass.TabIndex = 21;
-            this.lblPass.Text = "كلمة المرور";
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtUsername);
-            this.groupBox2.Controls.Add(this.lblUser);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(30, 33);
+            this.groupBox2.Location = new System.Drawing.Point(30, 47);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(454, 56);
+            this.groupBox2.Size = new System.Drawing.Size(514, 56);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(409, 22);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(4);
+            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "اسم المستخدم :";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Yu Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(28, 22);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(4);
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(90, 25);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Username :";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(31, 21);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(4);
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Password :";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label5.Location = new System.Drawing.Point(409, 20);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(4);
+            this.label5.Size = new System.Drawing.Size(83, 25);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "كلمة المرور :";
+            // 
+            // addBtn
+            // 
+            this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addBtn.BackColor = System.Drawing.Color.White;
+            this.addBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.addBtn.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.addBtn.ForeColor = System.Drawing.Color.Black;
+            this.addBtn.Image = global::EliteSmile.Properties.Resources.add_1;
+            this.addBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.addBtn.Location = new System.Drawing.Point(188, 246);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.addBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addBtn.Size = new System.Drawing.Size(183, 48);
+            this.addBtn.TabIndex = 27;
+            this.addBtn.Text = "إنشاء حساب جديد";
+            this.addBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addBtn.UseCompatibleTextRendering = true;
+            this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 305);
+            this.ClientSize = new System.Drawing.Size(614, 344);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
@@ -177,12 +238,15 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button addBtn;
     }
 }
