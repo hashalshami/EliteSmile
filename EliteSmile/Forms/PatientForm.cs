@@ -27,6 +27,8 @@ namespace EliteSmile.Forms
             txtFileNo.Text = "";
             txtPhone.Text = "";
             txtPlan.Text = "";
+            txtNote.Text = "";
+            dataGridView1.CellPainting -= dataGridView1_CellPainting;
         }
         private void LoadPatients()
         {
@@ -87,9 +89,10 @@ namespace EliteSmile.Forms
                     string sql = @"SELECT 
                                       p.id,
                                       p.name,
-                                      p.phone,
                                       p.fileNo,
+                                      p.note,
                                       p.plan,
+                                      p.phone,
                                       p.date,
                                       u.name AS DoctorName
                                    FROM Patients p
@@ -146,8 +149,8 @@ namespace EliteSmile.Forms
                     connection.Open();
 
                     string sql = @"INSERT INTO Patients 
-                           (name, phone, fileNo, date, plan, DoctorId)
-                           VALUES (@name, @phone, @fileNo, @date, @plan, @DoctorId)";
+                           (name, phone, fileNo, date, plan, note, DoctorId)
+                           VALUES (@name, @phone, @fileNo, @date, @plan, @note, @DoctorId)";
 
                     using (var cmd = new SQLiteCommand(sql, connection))
                     {
@@ -156,6 +159,7 @@ namespace EliteSmile.Forms
                         cmd.Parameters.AddWithValue("@fileNo", txtFileNo.Text);
                         cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value);
                         cmd.Parameters.AddWithValue("@plan", txtPlan.Text);
+                        cmd.Parameters.AddWithValue("@note", txtNote.Text);
                         cmd.Parameters.AddWithValue("@DoctorId", Session.ID);
 
                         cmd.ExecuteNonQuery();
@@ -188,7 +192,7 @@ namespace EliteSmile.Forms
                     connection.Open();
 
                     string sql = @"UPDATE Patients 
-                                   SET name = @name, phone = @phone, fileNo = @fileNo, date = @date, plan = @plan
+                                   SET name = @name, phone = @phone, fileNo = @fileNo, date = @date, plan = @plan, note = @note
                                    WHERE id = @id";
 
                     using (var cmd = new SQLiteCommand(sql, connection))
@@ -199,6 +203,7 @@ namespace EliteSmile.Forms
                         cmd.Parameters.AddWithValue("@fileNo", txtFileNo.Text);
                         cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value);
                         cmd.Parameters.AddWithValue("@plan", txtPlan.Text);
+                        cmd.Parameters.AddWithValue("@note", txtNote.Text);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -262,8 +267,10 @@ namespace EliteSmile.Forms
                 txtName.Text = row.Cells["colName"].Value != null ? row.Cells["colName"].Value.ToString() : "";
                 txtPhone.Text = row.Cells["colPhone"].Value != null ? row.Cells["colPhone"].Value.ToString() : "";
                 txtFileNo.Text = row.Cells["colFileNo"].Value != null ? row.Cells["colFileNo"].Value.ToString() : "";
-                //dateTimePicker1.Value = row.Cells["date"].Value.ToString();
+                dateTimePicker1.Value = row.Cells["colDate"].Value != null ? Convert.ToDateTime(row.Cells["colDate"].Value) : DateTime.Now;
                 txtPlan.Text = row.Cells["colPlan"].Value != null ? row.Cells["colPlan"].Value.ToString() : "";
+                txtNote.Text = row.Cells["colNote"].Value != null ? row.Cells["colNote"].Value.ToString() : "";
+                
             }
         }
 
@@ -279,12 +286,13 @@ namespace EliteSmile.Forms
             {
                 MasterClass.DataGrid_CellPainting(dataGridView1, e, txtName.Text, "colName", txtName, isRightToLeft: true);
             }
+            //MasterClass.DataGrid_CellPainting(dataGridView1, e, txtName.Text, "colName", txtName, isRightToLeft: true);
             
         }
 
         private void searchName(string text)
         {
-            
+            dataGridView1.CellPainting += dataGridView1_CellPainting;
             try
             {
                 using (var connection = new SQLiteConnection(connectionString))
@@ -294,15 +302,16 @@ namespace EliteSmile.Forms
                     string sql = @"SELECT 
                                       p.id,
                                       p.name,
-                                      p.phone,
                                       p.fileNo,
+                                      p.note,
                                       p.plan,
+                                      p.phone,
                                       p.date,
                                       u.name AS DoctorName
                                    FROM Patients p
                                    LEFT JOIN Users u ON p.DoctorId = u.id
                                    WHERE p.name LIKE @name
-                                   ORDER BY p.name";
+                                   ORDER BY p.id DESC";
 
                     using (var adapter = new SQLiteDataAdapter(sql, connection))
                     {
@@ -338,20 +347,34 @@ namespace EliteSmile.Forms
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                return;
-            }
+            
+            //if (string.IsNullOrWhiteSpace(txtName.Text))
+            //{
+                //return;
+            //}
             //searchName(txtName.Text);
+        }
+
+        private void txtName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            {
+                searchName(txtName.Text);
+            }
         }
 
         private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                return;
+            }
+            
             if (e.KeyCode == Keys.Enter)
             {
                 // منع الصفير الافتراضي عند الضغط على Enter
                 e.SuppressKeyPress = true;
-
+                searchName(txtName.Text);
                 // نقل التركيز إلى مربع النص الآخر
                 txtFileNo.Focus();
 
@@ -359,6 +382,17 @@ namespace EliteSmile.Forms
         }
 
         private void txtFileNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // منع الصفير الافتراضي عند الضغط على Enter
+                e.SuppressKeyPress = true;
+
+                txtNote.Focus();
+            }
+        }
+
+        private void txtNote_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -405,5 +439,9 @@ namespace EliteSmile.Forms
             report.Show();
             //report.ShowDialog();
         }
+
+        
+
+        
     }
 }

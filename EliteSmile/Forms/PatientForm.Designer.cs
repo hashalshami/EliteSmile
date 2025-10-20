@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDoctorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +53,8 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNote = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDoctorName = new System.Windows.Forms.TextBox();
@@ -65,8 +68,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,53 +76,54 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colName,
-            this.colPhone,
             this.colFileNo,
+            this.colNote,
             this.colPlan,
+            this.colPhone,
             this.colDate,
             this.colDoctorName,
             this.colDoctorId});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 304);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1200, 158);
             this.dataGridView1.TabIndex = 12;
@@ -140,12 +142,33 @@
             // 
             // colName
             // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colName.DataPropertyName = "name";
             this.colName.HeaderText = "الاسم";
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
-            this.colName.Width = 62;
+            // 
+            // colFileNo
+            // 
+            this.colFileNo.DataPropertyName = "fileNo";
+            this.colFileNo.HeaderText = "رقم الملف";
+            this.colFileNo.Name = "colFileNo";
+            this.colFileNo.ReadOnly = true;
+            // 
+            // colNote
+            // 
+            this.colNote.DataPropertyName = "note";
+            this.colNote.HeaderText = "ملاحظات";
+            this.colNote.Name = "colNote";
+            this.colNote.ReadOnly = true;
+            // 
+            // colPlan
+            // 
+            this.colPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPlan.DataPropertyName = "plan";
+            this.colPlan.HeaderText = "الخطة العلاجية";
+            this.colPlan.Name = "colPlan";
+            this.colPlan.ReadOnly = true;
             // 
             // colPhone
             // 
@@ -155,21 +178,6 @@
             this.colPhone.Name = "colPhone";
             this.colPhone.ReadOnly = true;
             this.colPhone.Width = 98;
-            // 
-            // colFileNo
-            // 
-            this.colFileNo.DataPropertyName = "fileNo";
-            this.colFileNo.HeaderText = "رقم الملف";
-            this.colFileNo.Name = "colFileNo";
-            this.colFileNo.ReadOnly = true;
-            // 
-            // colPlan
-            // 
-            this.colPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPlan.DataPropertyName = "plan";
-            this.colPlan.HeaderText = "الخطة العلاجية";
-            this.colPlan.Name = "colPlan";
-            this.colPlan.ReadOnly = true;
             // 
             // colDate
             // 
@@ -371,7 +379,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label7);
@@ -394,6 +402,33 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // txtNote
+            // 
+            this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNote.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txtNote.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.txtNote.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtNote.Location = new System.Drawing.Point(775, 162);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNote.MaximumSize = new System.Drawing.Size(400, 27);
+            this.txtNote.MinimumSize = new System.Drawing.Size(100, 21);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(325, 25);
+            this.txtNote.TabIndex = 140;
+            this.txtNote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNote_KeyDown);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(1108, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.TabIndex = 139;
+            this.label6.Text = "ملاحظات";
+            // 
             // txtID
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -405,7 +440,7 @@
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtID.Size = new System.Drawing.Size(129, 26);
+            this.txtID.Size = new System.Drawing.Size(98, 26);
             this.txtID.TabIndex = 138;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtID.Visible = false;
@@ -429,12 +464,12 @@
             this.txtDoctorName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtDoctorName.Enabled = false;
             this.txtDoctorName.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.txtDoctorName.Location = new System.Drawing.Point(942, 23);
+            this.txtDoctorName.Location = new System.Drawing.Point(928, 23);
             this.txtDoctorName.Margin = new System.Windows.Forms.Padding(5);
             this.txtDoctorName.Name = "txtDoctorName";
             this.txtDoctorName.ReadOnly = true;
             this.txtDoctorName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDoctorName.Size = new System.Drawing.Size(158, 26);
+            this.txtDoctorName.Size = new System.Drawing.Size(172, 26);
             this.txtDoctorName.TabIndex = 135;
             this.txtDoctorName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDoctorName.WordWrap = false;
@@ -444,10 +479,10 @@
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(912, 57);
+            this.dateTimePicker1.Location = new System.Drawing.Point(891, 57);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePicker1.Size = new System.Drawing.Size(188, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(209, 25);
             this.dateTimePicker1.TabIndex = 134;
             // 
             // label4
@@ -480,11 +515,11 @@
             this.txtPlan.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPlan.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtPlan.Location = new System.Drawing.Point(73, 56);
+            this.txtPlan.Location = new System.Drawing.Point(207, 56);
             this.txtPlan.Multiline = true;
             this.txtPlan.Name = "txtPlan";
             this.txtPlan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPlan.Size = new System.Drawing.Size(657, 134);
+            this.txtPlan.Size = new System.Drawing.Size(523, 166);
             this.txtPlan.TabIndex = 13;
             this.txtPlan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlan_KeyDown);
             // 
@@ -521,7 +556,7 @@
             this.txtPhone.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtPhone.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.txtPhone.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPhone.Location = new System.Drawing.Point(775, 162);
+            this.txtPhone.Location = new System.Drawing.Point(775, 197);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(5);
             this.txtPhone.MaximumSize = new System.Drawing.Size(400, 27);
             this.txtPhone.MinimumSize = new System.Drawing.Size(100, 21);
@@ -548,7 +583,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(1108, 165);
+            this.label1.Location = new System.Drawing.Point(1108, 200);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 25;
@@ -569,32 +604,7 @@
             this.txtName.TabIndex = 24;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.textBox1.Location = new System.Drawing.Point(775, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.MaximumSize = new System.Drawing.Size(400, 27);
-            this.textBox1.MinimumSize = new System.Drawing.Size(100, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 25);
-            this.textBox1.TabIndex = 140;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(1108, 200);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
-            this.label6.TabIndex = 139;
-            this.label6.Text = "رقم التواصل";
+            this.txtName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyUp);
             // 
             // PatientForm
             // 
@@ -640,17 +650,18 @@
         private System.Windows.Forms.TextBox txtDoctorName;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtNote;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFileNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoctorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDoctorId;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
 
     }
 }

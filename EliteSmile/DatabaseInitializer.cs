@@ -37,6 +37,14 @@ namespace EliteSmile
                     }
                 }
             }
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                AddColumnIfNotExists(connection, "Patients", "note", "TEXT");
+            }
+            
         }
 
         private static void AddColumnIfNotExists(SQLiteConnection conn, string table, string column, string type)
@@ -57,7 +65,7 @@ namespace EliteSmile
 
                 if (!exists)
                 {
-                    string alter = "ALTER TABLE " + table + " ADD COLUMN " + column + type+ ";";
+                    string alter = "ALTER TABLE " + table + " ADD COLUMN " + column +" "+ type+ ";";
                     using (var alterCmd = new SQLiteCommand(alter, conn))
                     {
                         alterCmd.ExecuteNonQuery();

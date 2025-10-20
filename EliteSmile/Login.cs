@@ -70,7 +70,7 @@ namespace EliteSmile
                                 this.Hide();
                                 var main = new MainForm();
                                 main.Show();
-                                MessageBox.Show("✅ تم تسجيل الدخول بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //MessageBox.Show("✅ تم تسجيل الدخول بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 main.FormClosing += (s, args) => this.Close();
                                 
