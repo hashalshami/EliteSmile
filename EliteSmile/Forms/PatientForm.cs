@@ -107,6 +107,7 @@ namespace EliteSmile.Forms
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
+                        dataGridView1.AutoGenerateColumns = false;
                         dataGridView1.DataSource = dt;
 
                         
@@ -259,18 +260,38 @@ namespace EliteSmile.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+            //if (e.RowIndex < 0 || dataGridView1.Rows[e.RowIndex].IsNewRow)
+                //return;
+            try
+            {                  
 
-                txtID.Text = row.Cells["colID"].Value != null ? row.Cells["colID"].Value.ToString() : "";
-                txtName.Text = row.Cells["colName"].Value != null ? row.Cells["colName"].Value.ToString() : "";
-                txtPhone.Text = row.Cells["colPhone"].Value != null ? row.Cells["colPhone"].Value.ToString() : "";
-                txtFileNo.Text = row.Cells["colFileNo"].Value != null ? row.Cells["colFileNo"].Value.ToString() : "";
-                dateTimePicker1.Value = row.Cells["colDate"].Value != null ? Convert.ToDateTime(row.Cells["colDate"].Value) : DateTime.Now;
-                txtPlan.Text = row.Cells["colPlan"].Value != null ? row.Cells["colPlan"].Value.ToString() : "";
-                txtNote.Text = row.Cells["colNote"].Value != null ? row.Cells["colNote"].Value.ToString() : "";
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                    
+                    //dataGridView1.AutoGenerateColumns = false;
+                    txtID.Text = row.Cells["colID"].Value != null ? row.Cells["colID"].Value.ToString() : "";
+                    txtName.Text = row.Cells["colName"].Value != null ? row.Cells["colName"].Value.ToString() : "";
+                    txtFileNo.Text = row.Cells["colFileNo"].Value != null ? row.Cells["colFileNo"].Value.ToString() : "";
+                    txtNote.Text = row.Cells["colNote"].Value != null ? row.Cells["colNote"].Value.ToString() : "";
+                    txtPlan.Text = row.Cells["colPlan"].Value != null ? row.Cells["colPlan"].Value.ToString() : "";
+                    txtPhone.Text = row.Cells["colPhone"].Value != null ? row.Cells["colPhone"].Value.ToString() : "";
+                    dateTimePicker1.Value = row.Cells["colDate"].Value != null ? Convert.ToDateTime(row.Cells["colDate"].Value) : DateTime.Now;
+                    
+                    //string dateValue = row.Cells["colDate"].Value != null ? row.Cells["colDate"].Value.ToString() : "";
+                    //DateTime parsedDate;
+                    //if (DateTime.TryParse(dateValue, out parsedDate))
+                    //    dateTimePicker1.Value = parsedDate;
+                    //else
+                    //    dateTimePicker1.Value = DateTime.Now;
+                    
                 
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+                //MessageBox.Show("حدث خطأ أثناء تحميل بيانات الصف " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -320,7 +341,7 @@ namespace EliteSmile.Forms
 
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-
+                        dataGridView1.AutoGenerateColumns = false;
                         dataGridView1.DataSource = dt;
 
                         
@@ -342,25 +363,29 @@ namespace EliteSmile.Forms
                 return;
             }
             
+
             searchName(txtName.Text);
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             
-            //if (string.IsNullOrWhiteSpace(txtName.Text))
-            //{
-                //return;
-            //}
-            //searchName(txtName.Text);
+            
         }
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                searchName(txtName.Text);
+                dataGridView1.CellPainting -= dataGridView1_CellPainting;
+                LoadData();
+                return;
             }
+            searchName(txtName.Text);
+            //if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            //{
+                //searchName(txtName.Text);
+            //}
         }
 
         private void txtName_KeyDown(object sender, KeyEventArgs e)
@@ -374,7 +399,7 @@ namespace EliteSmile.Forms
             {
                 // منع الصفير الافتراضي عند الضغط على Enter
                 e.SuppressKeyPress = true;
-                searchName(txtName.Text);
+                //searchName(txtName.Text);
                 // نقل التركيز إلى مربع النص الآخر
                 txtFileNo.Focus();
 
@@ -438,6 +463,19 @@ namespace EliteSmile.Forms
             PatientReportForm report = new PatientReportForm(patient_id);
             report.Show();
             //report.ShowDialog();
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            //bool enabled;
+            //if (string.IsNullOrWhiteSpace(txtID.Text))
+            //    enabled = false;
+            //else
+            //    enabled = true;
+
+            //editBtn.Enabled = enabled;
+            //deleteBtn.Enabled = enabled;
+            //printBtn.Enabled = enabled;
         }
 
         

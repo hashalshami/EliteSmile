@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "EliteSmile"
-#define MyAppVersion "1.5"
+#define MyAppVersion "1.8"
 #define MyAppPublisher "Hashem Ameen"
 #define MyAppURL "https://www.example.com/"
 #define MyAppExeName "EliteSmile.exe"
@@ -51,7 +51,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 ; Source: "C:\Program Files (x86)\Inno Setup 6\Examples\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\DataBase.db"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\DataBase.db"; DestDir: "{app}"; Flags: ignoreversion onlyifdoesntexist uninsneveruninstall
 Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\EliteSmile.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\EliteSmile.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\bin\Debug\EliteSmile.pdb"; DestDir: "{app}"; Flags: ignoreversion

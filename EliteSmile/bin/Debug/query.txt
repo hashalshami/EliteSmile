@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS Patients (
     fileNo TEXT,
     date DATETIME,
     plan TEXT,
+	note TEXT,
     DoctorId INTEGER,
     FOREIGN KEY (DoctorId) REFERENCES Users(id) ON DELETE SET NULL
 );
