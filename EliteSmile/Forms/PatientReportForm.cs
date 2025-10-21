@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 
+using EliteSmile.report;
 namespace EliteSmile.Forms
 {
     public partial class PatientReportForm : Form
@@ -47,10 +48,18 @@ namespace EliteSmile.Forms
                     {
                         adapter.SelectCommand.Parameters.AddWithValue("@id", _PationtID);
 
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
+                       // DataTable dt = new DataTable();
+                        //adapter.Fill(dt);
 
-                        dataGridView1.DataSource = dt;
+                        DataSet1 set = new DataSet1();
+                        adapter.Fill(set, "Patients");
+
+                        CrystalReport1 cry = new CrystalReport1();
+
+                        cry.SetDataSource(set);
+                        crystalReportViewer1.ReportSource = cry;
+                        crystalReportViewer1.Refresh();
+                       // dataGridView1.DataSource = dt;
 
                         //Crystal_Pationt report = new Crystal_Pationt();
                         //report.SetDataSource(list); // ✅ مباشرة من List<Patient>
