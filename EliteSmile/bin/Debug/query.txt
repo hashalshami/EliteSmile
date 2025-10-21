@@ -20,7 +20,4 @@ CREATE TABLE IF NOT EXISTS Patients (
 
 
 INSERT OR IGNORE INTO Users (name, username, password, role)
-VALUES ('د. هند امين', 'hend', '0000', 'Admin');
-
-INSERT OR IGNORE INTO Users (name, username, password, role)
 VALUES ('م. هاشم امين', 'hash', '0000', 'Admin');

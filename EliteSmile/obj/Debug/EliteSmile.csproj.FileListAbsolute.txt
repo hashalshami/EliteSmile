@@ -27,3 +27,4 @@ C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.csproj.Generate
 C:\Users\AL-HASHEM\Desktop\Elite\EliteSmile\obj\Debug\EliteSmile.Forms.PatientReportForm.resources
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.PatientReportForm.resources
 C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.Signup.resources
+C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.csprojResolveAssemblyReference.cache
