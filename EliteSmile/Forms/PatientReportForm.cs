@@ -36,6 +36,7 @@ namespace EliteSmile.Forms
                               p.phone,
                               p.fileNo,
                               p.plan,
+                              p.note,
                               p.date,
                               u.name AS DoctorName
                            FROM Patients p
@@ -51,39 +52,16 @@ namespace EliteSmile.Forms
 
                         dataGridView1.DataSource = dt;
 
+                        //Crystal_Pationt report = new Crystal_Pationt();
+                        //report.SetDataSource(list); // ✅ مباشرة من List<Patient>
+
+                        //crystalReportViewer1.ReportSource = report;
+                        //crystalReportViewer1.Zoom(120);
+                        //crystalReportViewer1.Refresh();
+
 
                     }
-                    //using (var cmd = new SQLiteCommand(sql, connection))
-                    //{
-                    //    cmd.Parameters.AddWithValue("@id", _PationtID);
-
-                        //using (var reader = cmd.ExecuteReader())
-                        //{
-                        //    var list = new List<Patient>();
-
-                        //    while (reader.Read())
-                        //    {
-                        //        list.Add(new Patient
-                        //        {
-                        //            Id = reader.GetInt32(0),
-                        //            Name = reader.GetString(1),
-                        //            Phone = reader.IsDBNull(2) ? "" : reader.GetString(2),
-                        //            FileNo = reader.IsDBNull(3) ? "" : reader.GetString(3),
-                        //            Plan = reader.IsDBNull(4) ? "" : reader.GetString(4),
-                        //            Date = reader.IsDBNull(5) ? "" : reader.GetString(5),
-                        //            DoctorName = reader.IsDBNull(6) ? "" : reader.GetString(6),
-                        //            DoctorId = 1,
-                        //        });
-                        //    }
-
-                        //    Crystal_Pationt report = new Crystal_Pationt();
-                        //    report.SetDataSource(list); // ✅ مباشرة من List<Patient>
-
-                        //    crystalReportViewer1.ReportSource = report;
-                        //    crystalReportViewer1.Zoom(120);
-                        //    crystalReportViewer1.Refresh();
-                        //}
-                    //}
+                    
                 }
             }
             catch (Exception ex)
