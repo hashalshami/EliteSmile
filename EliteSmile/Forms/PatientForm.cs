@@ -148,6 +148,19 @@ namespace EliteSmile.Forms
                 using (var connection = new SQLiteConnection(connectionString))
                 {
                     connection.Open();
+                    // أولاً: التحقق إن كان الاسم موجود مسبقاً
+                    string checkQuery = "SELECT COUNT(*) FROM Patients WHERE name = @name";
+                    using (var checkCmd = new SQLiteCommand(checkQuery, connection))
+                    {
+                        checkCmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+                        long count = (long)checkCmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("اسم المريض موجود مسبقاً ⚠️", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // إيقاف التنفيذ وعدم إضافة المريض
+                        }
+                    }
 
                     string sql = @"INSERT INTO Patients 
                            (name, phone, fileNo, date, plan, note, DoctorId)
@@ -168,6 +181,7 @@ namespace EliteSmile.Forms
                     LoadData();
                     MessageBox.Show("✅ تم إضافة المريض بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
+                    refreshBtn.PerformClick();
                 }
             }
             catch (Exception ex)
@@ -247,9 +261,10 @@ namespace EliteSmile.Forms
                         cmd.Parameters.AddWithValue("@id", patient_id);
                         cmd.ExecuteNonQuery();
                     }
-                    LoadData();
+                    //LoadData();
                     MessageBox.Show("🗑️ تم حذف المريض بنجاح!");
-                    ClearFields();
+                    //ClearFields();
+                    refreshBtn.PerformClick();
                 }
             }
             catch (Exception ex)
@@ -290,8 +305,8 @@ namespace EliteSmile.Forms
             }
             catch (Exception ex)
             {
-                return;
-                //MessageBox.Show("حدث خطأ أثناء تحميل بيانات الصف " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return;
+                MessageBox.Show("حدث خطأ أثناء تحميل بيانات الصف " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

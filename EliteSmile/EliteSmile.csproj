@@ -68,6 +68,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ManageDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageDatabaseForm.Designer.cs">
+      <DependentUpon>ManageDatabaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageDatabaseForm.resx">
+      <DependentUpon>ManageDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PatientForm.resx">
       <DependentUpon>PatientForm.cs</DependentUpon>

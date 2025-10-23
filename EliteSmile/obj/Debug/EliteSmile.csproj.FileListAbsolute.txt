@@ -59,3 +59,4 @@ C:\Users\AL-HASHEM\Desktop\00\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Login.r
 C:\Users\AL-HASHEM\Desktop\00\EliteSmile\EliteSmile\obj\Debug\EliteSmile.MainForm.resources
 C:\Users\AL-HASHEM\Desktop\00\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Properties.Resources.resources
 C:\Users\AL-HASHEM\Desktop\00\EliteSmile\EliteSmile\obj\Debug\EliteSmile.csproj.GenerateResource.Cache
+C:\Users\AL-HASHEM\Desktop\EliteSmile\EliteSmile\obj\Debug\EliteSmile.Forms.ManageDatabaseForm.resources

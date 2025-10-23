@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "EliteSmile"
-#define MyAppVersion "1.8"
+#define MyAppVersion "2.0"
 #define MyAppPublisher "Hashem Ameen"
 #define MyAppURL "https://www.example.com/"
 #define MyAppExeName "EliteSmile.exe"

@@ -38,12 +38,12 @@ namespace EliteSmile
                 }
             }
 
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
+            //using (var connection = new SQLiteConnection(connectionString))
+            //{
+                //connection.Open();
 
-                AddColumnIfNotExists(connection, "Patients", "note", "TEXT");
-            }
+                //AddUniqueConstraintIfNotExists(connection, "Patients", "name");
+            //}
             
         }
 
@@ -73,5 +73,42 @@ namespace EliteSmile
                 }
             }
         }
+
+        private static void AddUniqueConstraintIfNotExists(SQLiteConnection conn, string table, string column)
+        {
+            bool isUnique = false;
+
+            // التحقق من الفهارس الموجودة على الجدول
+            string checkIndexQuery = "PRAGMA index_list("+table+");";
+            using (var cmd = new SQLiteCommand(checkIndexQuery, conn))
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string indexName = reader["name"].ToString();
+                    string isUniqueFlag = reader["unique"].ToString();
+
+                    // إذا كان الفهرس فريدًا ويحمل اسم العمود، نعتبره موجودًا
+                    if (isUniqueFlag == "1" && indexName.ToLower().Contains(column.ToLower()))
+                    {
+                        isUnique = true;
+                        break;
+                    }
+                }
+            }
+
+            // إذا لم يكن هناك فهرس فريد على العمود، ننشئه
+            if (!isUnique)
+            {
+                string indexName = "idx_"+table+"_"+column+"_unique";
+                string createIndex = "CREATE UNIQUE INDEX IF NOT EXISTS " + indexName + " ON " + table + "(" + column + ");";
+
+                using (var cmd = new SQLiteCommand(createIndex, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }
